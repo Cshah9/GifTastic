@@ -8,5 +8,16 @@
   border-width: 1px;
   border-radius: 25px;
   /*background-color: #fdcc52;*/
+ }
+
+ .original {
   background-color: grey;
+ }
+
+  .play {
+  background-color: green;
+ }
+
+  .stop {
+  background-color: red;
  }

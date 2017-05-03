@@ -36,20 +36,18 @@ function topicClick(){
 	 	for (var i = 0; i < response.data.length; i++) {
 	 		//console.log(response.data[i]);	
 
+	 		//create img element with attributes to hold class, still image, animated image, state, and src
 	 		var $img = $("<img>")
 	 		$img.addClass("original gif");
 	 		$img.attr("data-still", response.data[i].images.original_still.url );
-	 		$img.attr("data-animate", response.data[i].images.original_still.url );
+	 		$img.attr("data-animate", response.data[i].images.original.url );
 	 		$img.attr("data-state", "still-new" );
 	 		$img.attr("src", response.data[i].images.original_still.url);
 	 		$gifSection.prepend($img);
 
-	 		//still images:
-	 		// $("#gif-section").append('<img class="gif" src="' + response.data[i].images.original_still.url + '" />');
-
-	 		// animated images:
-	 		//	$("#gif-section").append('<img class="gif" src="' + response.data[i].images.original.url + '" />');
 	 	}
+
+	 	//add onclick function for new images
 	 	$(".gif").click(gifClick);
 
 	 });
@@ -57,5 +55,32 @@ function topicClick(){
 }
 
 function gifClick() {
-	alert("Clicked on "+ $(this).attr("data-still"));
+	//console.log("Clicked on "+ $(this).attr("data-still"));
+
+	//handle to gif 
+	var $this = $(this);
+	var state = $this.attr("data-state");
+
+	if (state == "still-new") {
+		$this.removeClass("original");
+		$this.addClass("play");
+		$this.attr("src", $this.attr("data-animate"));
+		$this.attr("data-state", "animate");
+
+	}
+	else if (state == "still") {
+		$this.removeClass("stop");
+		$this.addClass("play");
+		$this.attr("src", $this.attr("data-animate"));
+		$this.attr("data-state", "animate");
+
+	}
+	else if (state == "animate") {
+		$this.removeClass("play");
+		$this.addClass("stop");
+		$this.attr("src", $this.attr("data-still"));
+		$this.attr("data-state", "still");
+
+	}
+
 }
