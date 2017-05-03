@@ -32,8 +32,8 @@ function topicClick(){
 
 	 	//iterate through gifs in response and add to page
 	 	for (var i = 0; i < response.data.length; i++) {
-	 		
-	 		console.log(response.data[i]);
+	 		//console.log(response.data[i]);
+	 		$("#gif-section").append('<img class="gif" src="' + response.data[i].images.original.url + '" />');
 	 	}
 	 });
 
