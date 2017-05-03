@@ -24,6 +24,8 @@ function topicClick(){
 	queryURL = "http://api.giphy.com/v1/gifs/search?q=" + ($(this).attr("data-value")).replace(/\s/g, "+") + "&limit=10&api_key=dc6zaTOxFJmzC";
 
 	console.log(queryURL);
+	// gif section handle
+	var $gifSection = $("#gif-section");
 
 	$.ajax({ url:queryURL, method:"GET"})
 	 .done(function(response){
@@ -34,8 +36,16 @@ function topicClick(){
 	 	for (var i = 0; i < response.data.length; i++) {
 	 		//console.log(response.data[i]);	
 
+	 		var $img = $("<img>")
+	 		$img.addClass("original gif");
+	 		$img.attr("data-still", response.data[i].images.original_still.url );
+	 		$img.attr("data-animate", response.data[i].images.original_still.url );
+	 		$img.attr("data-state", "still-new" );
+	 		$img.attr("src", response.data[i].images.original_still.url);
+	 		$gifSection.prepend($img);
+
 	 		//still images:
-	 		$("#gif-section").append('<img class="gif" src="' + response.data[i].images.original_still.url + '" />');
+	 		// $("#gif-section").append('<img class="gif" src="' + response.data[i].images.original_still.url + '" />');
 
 	 		// animated images:
 	 		//	$("#gif-section").append('<img class="gif" src="' + response.data[i].images.original.url + '" />');
