@@ -1,7 +1,7 @@
 
 
 // array to hold topic names
-var topics = ["Stargate SG1", "A-Team", "Knight Rider", "MacGyver"];
+var topics = ["Stargate SG1", "A-Team", "Knight Rider", "MacGyver", "Family Guy", "Batman"];
 
 // for loop to create inital set of buttons 
 for (var i = 0; i < topics.length; i++) {
