@@ -79,13 +79,39 @@
             <br>
             <br>
             <br>
-            <!-- button area starts here -->
-            <div id="button-section" id="top"> 
-            </div>
+            <!-- first row for topic buttons -->
+            <div class="row">
+                <!-- button area starts here -->
+                <div id="button-section" id="top"> 
+                </div>
         
-            <hr>
-            <!-- gif area starts here -->
-            <div id="gif-section">
+                <hr>
+            </div>  
+            <!-- second row, 1 column for gifs, and 2nd column for adding more topics -->
+            <div class="row">
+
+                <div class="col-md-9 col-sm-12">
+                        <!-- gif area starts here -->
+                        <div id="gif-section">
+                        </div>
+                </div>
+
+                <!-- input section -->
+                <div class="col-md-3 col-sm-12">
+                        <!-- gif area starts here -->
+                        <div id="input-section">
+
+                              <div class="form-group">
+                                <label for="topic-name">Add a new topic:</label>
+                                <input type="input" class="form-control" id="topic-name" placeholder="topic">
+                              </div>
+
+                              <button type="submit" class="btn btn-outline btn-xl page-scroll" id="submit">Submit</button>
+
+                            
+
+                        </div>
+                </div>
             </div>
         </div>
     </header>

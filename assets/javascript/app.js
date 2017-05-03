@@ -7,14 +7,13 @@ var topics = ["Stargate SG1", "A-Team", "Knight Rider", "MacGyver"];
 for (var i = 0; i < topics.length; i++) {
 
 	// create a button for each topic with topic as data-value attribute; and then add the button-section div
-	$("#button-section").append(
-		'<a href="#" class="btn btn-outline btn-xl page-scroll topic" data-value="'
-		+ topics[i] +'">' 
-		+ topics[i] + '</a>');
+	addTopicButton(topics[i]);
 
 }
 
 $(".topic").click(topicClick);
+$(".gif").click(gifClick);
+$("#submit").click(submitClick);
 
 function topicClick(){
 	
@@ -83,4 +82,23 @@ function gifClick() {
 
 	}
 
+}
+
+function submitClick(){
+	console.log("submitClick");
+	event.preventDefault();
+
+	addTopicButton($("#topic-name").val().trim());
+
+}
+
+function addTopicButton(topic){
+
+		console.log("addTopicButton: " + topic)
+
+		$("#button-section").append(
+		'<a href="#" class="btn btn-outline btn-xl page-scroll topic" data-value="'
+		+ topic +'">' 
+		+ topic + '</a>');
+		$(".topic").click(topicClick);
 }
