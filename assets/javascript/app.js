@@ -50,6 +50,12 @@ function topicClick(){
 	 		// animated images:
 	 		//	$("#gif-section").append('<img class="gif" src="' + response.data[i].images.original.url + '" />');
 	 	}
+	 	$(".gif").click(gifClick);
+
 	 });
 
+}
+
+function gifClick() {
+	alert("Clicked on "+ $(this).attr("data-still"));
 }
