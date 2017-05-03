@@ -8,20 +8,20 @@ for (var i = 0; i < topics.length; i++) {
 
 }
 
-// $(".topic").click(topicClick);
+$(".topic").click(topicClick);
 
-// function topicClick(){
-// 	//alert(($(this).attr("data-value")).replace(/\s/g, "+"));
+function topicClick(){
+	//alert(($(this).attr("data-value")).replace(/\s/g, "+"));
 
-// 	queryURL = "http://api.giphy.com/v1/gifs/search?q=" + ($(this).attr("data-value")).replace(/\s/g, "+") + "&limit=10&api_key=dc6zaTOxFJmzC";
+	queryURL = "http://api.giphy.com/v1/gifs/search?q=" + ($(this).attr("data-value")).replace(/\s/g, "+") + "&limit=10&api_key=dc6zaTOxFJmzC";
 
-// 	console.log(queryURL);
+	console.log(queryURL);
 
-// 	$.ajax({ url:queryURL, method:"GET"})
-// 	 .done(function(response){
-// 	 	console.log(response);
+	$.ajax({ url:queryURL, method:"GET"})
+	 .done(function(response){
+	 	console.log(response);
 
-// 	 	//$("")
-// 	 });
+	 	//$("")
+	 });
 
-// }
+}
