@@ -1,3 +1,6 @@
+ 
+
+/* formats every gif to same size, and adds a border with round corners*/
  .gif {
   height: 200px;
   width: 200px;
@@ -7,17 +10,19 @@
   border-color: white;
   border-width: 1px;
   border-radius: 25px;
-  /*background-color: #fdcc52;*/
  }
 
+/* changes background border color to grey */
  .original {
   background-color: grey;
  }
 
+/* changes background border color to green */
   .play {
   background-color: green;
  }
 
+/* changes background border color to red */
   .stop {
   background-color: red;
  }
