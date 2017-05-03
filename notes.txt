@@ -31,3 +31,6 @@
   text-shadow: none;
   background: #222222;
 }
+
+
+event.preventDefault();
