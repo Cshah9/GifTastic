@@ -12,8 +12,8 @@ for (var i = 0; i < topics.length; i++) {
 }
 
 //add onclick functions for topic buttons, gifs, and submit button
-$(".topic").click(topicClick);
-$(".gif").click(gifClick);
+//$(".topic").click(topicClick);
+//$(".gif").click(gifClick);
 $("#submit").click(submitClick);
 
 
@@ -32,7 +32,7 @@ function topicClick(){
 		($(this).attr("data-value")).replace(/\s/g, "+") + 
 		"&limit=10&api_key=dc6zaTOxFJmzC";
 
-	//console.log(queryURL);
+	console.log(queryURL);
 
 	//handle to div with #gif-section; which will be updated with gifs
 	var $gifSection = $("#gif-section");
@@ -44,16 +44,17 @@ function topicClick(){
 	//function to process response once its available
 	 .done(function(response){
 
-	 	//console.log(response);
+	 	console.log(response);
 
 	 	//iterate through gifs in response and add to page
 	 	for (var i = 0; i < response.data.length; i++) {
-	 		//console.log(response.data[i]);	
+	 		console.log(response.data[i]);	
 
 	 		//create img element to add the gif
-	 		var $img = $("<img>")
+	 		var $img = $("<img>");
 	 		//add classes for styling; and onclick function
-	 		$img.addClass("original gif");
+	 		$img.addClass("original");
+	 		$img.addClass("gif");
 	 		//Add still GIF url as the "data-still" attribute
 	 		$img.attr("data-still", response.data[i].images.original_still.url );
 	 		//Add animated GIF url as the "data-animate" attribute
@@ -64,11 +65,12 @@ function topicClick(){
 	 		$img.attr("src", response.data[i].images.original_still.url);
 	 		//prepend the img to the gif section so that we can keep adding new gifs to the top of gif section
 	 		$gifSection.prepend($img);
+	 		//add onclick function for new images
+	 		$img.click(gifClick);
 
 	 	}
 
-	 	//add onclick function for new images
-	 	$(".gif").click(gifClick);
+	 	
 
 	 });
 
@@ -162,12 +164,13 @@ function addTopicButton(topic){
 	//	console.log("addTopicButton: " + topic)
 
 		//create a button with theme classes, data-value = topic name, and button text = topic name.
-		//then append button to button-section div
-		$("#button-section").append(
-		'<a href="#" class="btn btn-outline btn-xl page-scroll topic" data-value="'
+		$button = $('<a href="#" class="btn btn-outline btn-xl page-scroll topic" data-value="'
 		+ topic +'">' 
 		+ topic + '</a>');
 
+		//then append button to button-section div
+		$("#button-section").append($button);
+
 		//add topicClick as the onclick function for new button.
-		$(".topic").click(topicClick);
+		$button.click(topicClick);
 }
