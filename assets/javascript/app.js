@@ -52,15 +52,14 @@ function topicClick(){
 
 	 		//create img element to add the gif
 	 		var $img = $("<img>");
-	 		//add classes for styling; and onclick function
-	 		$img.addClass("original");
+	 		//add class for styling
 	 		$img.addClass("gif");
 	 		//Add still GIF url as the "data-still" attribute
 	 		$img.attr("data-still", response.data[i].images.original_still.url );
 	 		//Add animated GIF url as the "data-animate" attribute
 	 		$img.attr("data-animate", response.data[i].images.original.url );
-	 		////Add "still-new" as the "data-state" attribute
-	 		$img.attr("data-state", "still-new" );
+	 		////Add "still" as the "data-state" attribute
+	 		$img.attr("data-state", "still" );
 	 		//add still GIF URL as the source attribute becuase we want the still image displayed as default
 	 		$img.attr("src", response.data[i].images.original_still.url);
 	 		//prepend the img to the gif section so that we can keep adding new gifs to the top of gif section
@@ -91,20 +90,8 @@ function gifClick() {
 	//retrieve the state of the GIF
 	var state = $this.attr("data-state");
 
-	//GIF state will be 1 of 3 - still-new, still, or animate; based on that update GIF accordingly
-	if (state == "still-new") {
-		//this means that this is the first time that user is clicking on the GIF
-		//remove "original" class, which will remove that formating
-		$this.removeClass("original");
-		//GIF will be animated, so add "play" formating
-		$this.addClass("play");
-		//Change the source attribute to animate gif url
-		$this.attr("src", $this.attr("data-animate"));
-		//update data-state to animate, so we can handle next time its clicked
-		$this.attr("data-state", "animate");
-
-	}
-	else if (state == "still") {
+	//GIF state will be 1 of 2 - still, or animate; based on that update GIF animation accordingly
+if (state == "still") {
 		//this means that this is the GIF is still and user wants to start animation
 
 		//remove stop class

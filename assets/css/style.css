@@ -10,12 +10,9 @@
   border-color: white;
   border-width: 1px;
   border-radius: 25px;
- }
-
-/* changes background border color to grey */
- .original {
   background-color: grey;
  }
+
 
 /* changes background border color to green */
   .play {
